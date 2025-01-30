@@ -1,4 +1,4 @@
-# Logica do JOGO DA FORCA - Nesta versão o usuario ira jogar usando o terminal
+# Logica do JOGO DA FORCA
 
 # Coletando palavra secreta do usuario
 palavra = input('Digite a palavra secreta: ').lower().strip()
@@ -53,6 +53,18 @@ while True:
             adivinha += tentativa
         else:
             erros += 1
+            if erros == 1:
+                linha3 += '  O'
+            if erros == 2:
+                linha4 += ' /'
+            if erros == 3:
+                linha4 += '|'
+            if erros == 4:
+                linha4 += '\ '
+            if erros == 5:
+                linha5 += ' /'
+            if erros == 6:
+                linha5 += ' \ '
             print('Você errou!')
             
             
@@ -60,22 +72,6 @@ while True:
 # DESENHO DA FORCA
     print('X==:==')
     print('X  :')
-    
-    
-    
-    if erros == 1:
-        linha3 += '  O'
-    if erros == 2:
-        linha4 += ' /'
-    if erros == 3:
-        linha4 += '|'
-    if erros == 4:
-        linha4 += "\ "
-    if erros == 5:
-        linha5 += ' /'
-    if erros == 6:
-        linha5 += ' \ '
-    
     print(linha3)
     print(linha4)
     print(linha5)
@@ -87,4 +83,4 @@ while True:
         print(f'A palavra correta é: {palavra}')
         break
 
-
+# Erro onde era adicionado partes do corpo a mais corrigido!
