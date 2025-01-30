@@ -1,73 +1,24 @@
-# Logica do JOGO DA FORCA
+from desenhos import menu
+import jogo as j
 
-# Coletando palavra secreta do usuario
-import desenhos as d
-from random import choice as c
-#palavra = input('Digite a palavra secreta: ').lower().strip()
-
-# Sorteando a palavra
-lista_palavra = []
-arquivo = open('palavras.txt', 'r')
-for linha in arquivo:
-    plv = linha.strip()
-    lista_palavra.append(plv)
-palavra = c(lista_palavra)
-
-
-
-
-
-
-# Espaços para que a palavra secreta "desaparecer"
-for i in range(50):
-    print("")
-
-
-# Criando variaveis e listas para armazenamento de dados para funcionamento
-digitadas = []
-acertos = []
-erros = 0
-
-# Logica para ocultação da palavra secreta
 while True:
-    adivinha = d.imprimir_palavra_secreta(palavra, acertos)
-# CONDIÇÃO DE VITORIA
-    if adivinha == palavra:
-            print('ACERTOU!!!')
-            break   
-
     
+    menu()
     
-# Coletando a tentativa do usuario 
-    while True:
-        tentativa = input('Digite uma letra: ').strip().lower()
-# Verificando se foi digitada mais de uma letra
-        if len(tentativa) != 1:
-            print('Digite apenas 1 letra!')
-            continue
-        else:
-            break
-# Verificando se o usario ja tentou esse letra
-    if tentativa in digitadas:
-        print('Você ja tentou essa')
+    opcao = int(input('Escolha uma opção: '))
+    
+    if opcao == 1:
+        j.jogo()
+        input('Aperte qualquer tecla para voltar ao menu...')
+        
+    elif opcao == 2:
+        print('Score em breve!')
+        input('Aperte qualquer tecla para voltar ao menu...')
         continue
-    
-    else:
-        digitadas.append(tentativa)
-        if tentativa in palavra:
-            acertos.append(tentativa)
-            adivinha += tentativa
-        else:
-            erros += 1
-            print('Você errou!')
-            
-            
-    
-    d.desenhar_forca(erros)
-# CONDIÇÃO DE DERROTA
-    if erros == 6:
-        print('ENFORCADO!!!')
-        print(f'A palavra correta é: {palavra}')
+        
+    elif opcao == 3:
+        print('Encerrando...')
         break
-
-# Erro onde era adicionado partes do corpo a mais corrigido!
+    else:
+        print('Opção invalida!')
+        continue
