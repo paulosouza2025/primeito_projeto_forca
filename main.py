@@ -2,7 +2,21 @@
 
 # Coletando palavra secreta do usuario
 import desenhos as d
-palavra = input('Digite a palavra secreta: ').lower().strip()
+from random import choice as c
+#palavra = input('Digite a palavra secreta: ').lower().strip()
+
+# Sorteando a palavra
+lista_palavra = []
+arquivo = open('palavras.txt', 'r')
+for linha in arquivo:
+    plv = linha.strip()
+    lista_palavra.append(plv)
+palavra = c(lista_palavra)
+
+
+
+
+
 
 # Espaços para que a palavra secreta "desaparecer"
 for i in range(50):
